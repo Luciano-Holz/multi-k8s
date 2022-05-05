@@ -28,19 +28,3 @@ deploy:
   script: bash ./deploy.sh
   on:
     branch: master
-
-# after_success:
-#   - docker build -t lucianoholz/multi-client ./client
-#   - docker build -t lucianoholz/multi-nginx ./nginx
-#   - docker build -t lucianoholz/multi-server ./server
-#   - docker build -t lucianoholz/multi-worker ./worker
-#   # Log in to the docker CLI
-#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#   # Take those images and push them to docker hub
-#   - docker push lucianoholz/multi-client
-#   - docker push lucianoholz/multi-nginx
-#   - docker push lucianoholz/multi-server
-#   - docker push lucianoholz/multi-worker
-
-
-# docker run -it -v "/$(pwd)":/app ruby:2.4 sh
