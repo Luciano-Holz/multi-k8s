@@ -1,5 +1,4 @@
 sudo: required
-language: generic
 
 services:
   - docker
@@ -19,10 +18,10 @@ before_install:
   - gcloud config set compute/zone us-central1-c
   - gcloud container cluster get-credentials multi-clusters
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t lucianoholz/react-test -f ./client/Dockerfile.dev
+  - docker build -t lucianoholz/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run lucianoholz/react-test npm test -- --coverage
+  - docker run -e CI=true lucianoholz/react-test npm test
 
 deploy:
   provider: script
